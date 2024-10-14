@@ -17,13 +17,13 @@ Once you have forked the repository:
 i. Open your terminal and run the following command to clone it to your local machine:
 
    ```bash
-   git clone https://github.com/YOUR-USERNAME/EventLoom.git
+   git clone https://github.com/YOUR-USERNAME/BookWise.git
    ```
 
    ii. Navigate into the project directory:
 
 ```bash
-cd EventLoom
+cd BookWise
 ```
 
 ### 3. Install Dependencies
