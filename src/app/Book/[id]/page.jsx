@@ -6,13 +6,15 @@ export default function Page({ params }) {
   const [comments, setComments] = useState([]);
   const [commentText, setCommentText] = useState("");
   const [books, setBooks] = useState([]);
-  const name = "John Doe";
 
+  // All the comments will be fetched from the API
   const fetchBook = async () => {
+    // Replace with Our actual API endpoint
     const response = await fetch("https://api.itbook.store/1.0/search/science");
     const data = await response.json();
     setBooks(data.books);
   };
+  const name = "John Doe"; // Replace with our actual name from the API
 
   useEffect(() => {
     fetchBook();
