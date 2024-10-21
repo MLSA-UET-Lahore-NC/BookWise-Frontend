@@ -77,22 +77,27 @@ export default function SearchBar() {
   };
 
   return (
-    <div>
-      <input
-        type="text"
-        placeholder="Search for a book..."
-        value={searchQuery}
-        onChange={handleSearch}
-        style={{ padding: "10px", fontSize: "16px", width: "100%" }}
-      />
+    <div className="flex justify-center pt-10 bg-gray-800 min-h-screen">
 
-      {results.length > 0 && (
-        <ul>
-          {results.map((book, index) => (
-            <li  key={index}>{book.title} &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; author: {book.author}</li>
-          ))}
-        </ul>
-      )}
+      <div className="w-full max-w-lg">
+        <input
+          type="text"
+          placeholder="Search for a book..."
+          value={searchQuery}
+          onChange={handleSearch}
+          className="w-full p-3 text-lg rounded-md bg-gray-700 text-gray-200 placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-gray-600"
+        />
+
+        {results.length > 0 && (
+          <ul className="mt-4 bg-gray-700 rounded-md shadow-lg text-gray-200">
+            {results.map((book, index) => (
+              <li key={index} className="p-3 border-b border-gray-700">
+                {book.title} &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; author: {book.author}
+              </li>
+            ))}
+          </ul>
+        )}
+      </div>
     </div>
   );
 }
