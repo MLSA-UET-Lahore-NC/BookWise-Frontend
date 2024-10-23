@@ -8,6 +8,7 @@ export default async function Home() {
   const data = await response.json();
   const books = data.books;
 
+
   return (
     <div className="flex">
       {/* Search Sidebar */}
