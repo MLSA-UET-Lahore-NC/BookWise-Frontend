@@ -24,17 +24,21 @@ export default async function Home() {
 
           {
             books.length > 0 && books.map((book) => (
-              <Link key={book.title} href={`/Book/${book.isbn13}`}>
-                <div key={book.title} className="shadow hover:shadow-xl rounded " style={{ borderColor: "#373737", borderWidth: "1px" }}>
+              <div className="border rounded border-[#373737] shadow hover:shadow-xl">
+                <Link key={book.title} href={`/Book/${book.isbn13}`}>
+                  <div key={book.title} className="">
 
-                  <img src={book.image} alt={book.title} />
-                  <h3 className="text-md text-center mb-2 text-white line-clamp-1 overflow-hidden text-ellipsis px-1">
-                    {book.title}
-                  </h3>
-                  <p className="text-gray-300 mb-2 text-center">Price: {book.price}</p>
+                    <img src={book.image} alt={book.title} />
+                    <h3 className="text-md text-center mb-2 text-white line-clamp-1 overflow-hidden text-ellipsis px-1">
+                      {book.title}
+                    </h3>
+                    <p className="text-gray-300 mb-2 text-center">Price: {book.price}</p>
+                  </div>
+                </Link>
+                <div className="text-center mb-2">
+                  <button type="button" class="text-white bg-gradient-to-r from-blue-500 via-blue-600 to-blue-700 hover:bg-gradient-to-br focus:ring-4 focus:outline-none focus:ring-blue-300 dark:focus:ring-blue-800 shadow-lg shadow-blue-500/50 dark:shadow-lg dark:shadow-blue-800/80 font-medium rounded-lg text-sm px-5 py-2.5 text-center me-2 mb-2 ">Add To Wish List</button>
                 </div>
-
-              </Link>
+              </div>
             ))
           }
 
