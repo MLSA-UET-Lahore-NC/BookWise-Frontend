@@ -18,8 +18,10 @@ const Navbar = () => {
             height={50}
             className="mr-1"
           />
+          <a href="/">
           KeazoN
           <span className="text-xs font-thin text-gray-500">BOOKS</span>{" "}
+          </a>
         </div>
 
         {/* Search Bar */}
