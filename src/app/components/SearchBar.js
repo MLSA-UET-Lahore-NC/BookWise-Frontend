@@ -1,6 +1,7 @@
 "use client";
 
 import { useState } from "react";
+import Link from "next/link";
 
 // Function to fetch book data from the API
 const fetchBooks = async (query) => {
@@ -52,8 +53,10 @@ export default function SearchBar() {
         {results.length > 0 && (
           <ul className="mt-4 bg-gray-700 rounded-md shadow-lg text-gray-200">
             {results.map((book, index) => (
-              <li key={index} className="p-3 border-b border-gray-700">
-                {book.title} &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; author: {book.subtitle}
+              <li key={index} className="p-3 border-b border-gray-700 hover:underline">
+                <Link href={`/book/${book.isbn13}`}>
+                  {book.title} &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; author: {book.subtitle}
+                </Link>
               </li>
             ))}
           </ul>
