@@ -37,31 +37,36 @@ export default function SearchBar() {
     }
   };
 
+  // Clear results and input when navigating
+  const handleSuggestionClick = () => {
+    setResults([]); // Clear search results
+    setSearchQuery(""); // Clear search input
+  };
+
   return (
-    <div className="flex justify-center pt-10 bg-gray-800 min-h-screen">
-      <div className="w-full max-w-lg">
-        <input
-          type="text"
-          placeholder="Search for a book..."
-          value={searchQuery}
-          onChange={handleSearch}
-          className="w-full p-3 text-lg rounded-md bg-gray-700 text-gray-200 placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-gray-600"
-        />
+    <div className="relative">
+      <input
+        type="text"
+        placeholder="Search for a book..."
+        value={searchQuery}
+        onChange={handleSearch}
+        style={{ backgroundColor: 'rgb(55, 55, 55)' }} // Set background to rgb(55, 55, 55)
+        className="w-full p-3 text-lg rounded-md text-white placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-gray-600"
+      />
 
-        {loading && <p className="text-gray-400 mt-2">Loading...</p>}
+      {loading && <p className="text-gray-400 mt-2">Loading...</p>}
 
-        {results.length > 0 && (
-          <ul className="mt-4 bg-gray-700 rounded-md shadow-lg text-gray-200">
-            {results.map((book, index) => (
-              <li key={index} className="p-3 border-b border-gray-700 hover:underline">
-                <Link href={`/book/${book.isbn13}`}>
-                  {book.title} &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; author: {book.subtitle}
-                </Link>
-              </li>
-            ))}
-          </ul>
-        )}
-      </div>
+      {results.length > 0 && (
+        <ul className="absolute z-10 mt-1 w-full bg-gray-800 rounded-md shadow-lg text-gray-200">
+          {results.map((book, index) => (
+            <li key={index} className="p-3 border-b border-gray-700 hover:underline">
+              <Link href={`/book/${book.isbn13}`} onClick={handleSuggestionClick}>
+                {book.title} &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; author: {book.subtitle}
+              </Link>
+            </li>
+          ))}
+        </ul>
+      )}
     </div>
   );
 }
